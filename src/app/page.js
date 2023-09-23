@@ -2,12 +2,14 @@ const page = async () => {
 
   const randomNumber = Math.floor(Math.random() * 6236) + 1;
 
-  const rawData = await fetch(`http://api.alquran.cloud/v1/ayah/${randomNumber}/en.asad`)
+  const rawData = await fetch(`http://api.alquran.cloud/v1/ayah/${randomNumber}/en.asad`, {
+    "cache": "no-store"
+  })
 
   const parsedData = await rawData.json()
 
   return (
-    <div className="h-screen bg-gray-400 flex flex-col items-center justify-around">
+    <div className="h-screen pt-5 bg-gray-400 flex flex-col items-center justify-around">
       <div className="p-5 bg-gray-300 rounded shadow-md text-center font-semibold">
         <h1 className="text-lg">بِسْمِ ٱللّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ</h1>
         <p className="text-sm">In the name of God, Most Gracious, Most Merciful</p>
